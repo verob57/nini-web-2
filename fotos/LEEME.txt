@@ -1,0 +1,7 @@
+Pone aca tus fotos con EXACTAMENTE estos nombres (formato .jpg):
+
+Llavero Sanrio  ->  llavero-sanrio.jpg
+Figura chibi JJK  ->  figura-chibi-jjk.jpg
+Peluche Chiikawa mini  ->  peluche-chiikawa-mini.jpg
+Peluche Pusheen  ->  peluche-pusheen.jpg
+Taza gatito  ->  taza-gatito.jpg

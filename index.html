@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nini Gift Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2B2340;--mint:#A9E4C7;--lav:#C7B8ED;--pink:#F6B5CF;--sun:#FFE27A;--cream:#FFF9EF;--white:#fff;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Nunito',sans-serif;font-weight:700;
+    background-image:radial-gradient(#E9DFF7 2px,transparent 2px);background-size:26px 26px;}
+  h1,h2,h3,h4{font-family:'Fredoka',sans-serif;margin:0;font-weight:700;}
+  a{color:inherit;text-decoration:none;}
+  .box{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);border-radius:20px;background:var(--white);}
+  .wrap{max-width:1050px;margin:0 auto;padding:0 20px;}
+
+  header{background:var(--mint);border-bottom:3px solid var(--ink);position:sticky;top:0;z-index:20;}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .logo{font-family:'Fredoka',sans-serif;font-size:21px;display:flex;align-items:center;gap:8px;}
+  .logo i{font-style:normal;background:var(--pink);border:3px solid var(--ink);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;font-size:18px;}
+  .btn{display:inline-block;font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;padding:10px 20px;
+    border:3px solid var(--ink);border-radius:999px;box-shadow:3px 3px 0 var(--ink);background:var(--sun);cursor:pointer;transition:transform .1s,box-shadow .1s;}
+  .btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+  .btn.wa{background:#7EE08B;}
+
+  .hero{padding:54px 0 36px;}
+  .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;}
+  .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;}
+  .hero h1 mark{background:var(--pink);padding:0 10px;border-radius:12px;border:3px solid var(--ink);display:inline-block;transform:rotate(-2deg);}
+  .hero p{font-size:17px;margin:16px 0 24px;max-width:480px;}
+  .hero-card{background:var(--lav);padding:26px;text-align:center;transform:rotate(3deg);}
+  .hero-card .big{font-size:76px;line-height:1;}
+  .hero-card b{display:block;font-family:'Fredoka',sans-serif;font-size:20px;margin-top:10px;}
+  @media(max-width:760px){.hero .wrap{grid-template-columns:1fr;}.hero-card{transform:none;}}
+
+  .ticker{background:var(--ink);color:var(--sun);border-block:3px solid var(--ink);overflow:hidden;white-space:nowrap;padding:10px 0;font-family:'Fredoka',sans-serif;font-size:16px;}
+  .ticker span{display:inline-block;padding-left:100%;animation:run 22s linear infinite;}
+  @keyframes run{to{transform:translateX(-100%);}}
+
+  .shop{padding:46px 0 20px;}
+  .shop h2{font-size:32px;text-align:center;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0 30px;}
+  .chip{font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;padding:8px 18px;border:3px solid var(--ink);border-radius:999px;background:var(--white);cursor:pointer;}
+  .chip.on{background:var(--pink);box-shadow:3px 3px 0 var(--ink);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px;}
+  .card{overflow:hidden;display:flex;flex-direction:column;}
+  .ph{aspect-ratio:1;position:relative;display:grid;place-items:center;font-size:44px;border-bottom:3px solid var(--ink);}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--sun);border:2px solid var(--ink);border-radius:999px;font-size:11px;padding:2px 10px;}
+  .info{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .info h4{font-size:17px;}
+  .price{font-size:16px;}
+  .info .btn{margin-top:auto;text-align:center;font-size:14px;padding:8px;}
+
+  .how{padding:40px 0 60px;}
+  .how h2{text-align:center;font-size:30px;margin-bottom:26px;}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;}
+  .step{padding:22px;text-align:center;}
+  .step:nth-child(1){background:var(--mint);}.step:nth-child(2){background:var(--pink);}.step:nth-child(3){background:var(--lav);}
+  .step .n{font-family:'Fredoka',sans-serif;font-size:38px;}
+  footer{background:var(--ink);color:var(--cream);text-align:center;padding:34px 20px 90px;}
+  footer .logo{justify-content:center;color:var(--sun);margin-bottom:8px;}
+  footer p{margin:4px 0;font-size:14px;}
+  .fab{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#7EE08B;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:grid;place-items:center;font-size:26px;z-index:30;}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo"><i>🎁</i> Nini Gift Store</div>
+  <a class="btn wa" id="topWa" target="_blank">💬 Escribinos</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>Regalitos <mark>kawaii</mark> para quien más querés 🐾</h1>
+    <p>Sanrio, anime, Chiikawa, Pusheen y gatitos. Elegí tu cosita y pedila directo por WhatsApp.</p>
+    <a class="btn" href="#tienda">Ver productos ↓</a>
+  </div>
+  <div class="box hero-card"><div class="big">🎀</div><b>¡Nuevos ingresos cada semana!</b></div>
+</div></section>
+
+<div class="ticker"><span>✦ Sanrio ✦ Anime ✦ Chiikawa ✦ Pusheen ✦ Gatitos ✦ Pedidos por WhatsApp ✦ Envíos y retiro ✦</span></div>
+
+<section class="shop" id="tienda"><div class="wrap">
+  <h2>Nuestra tienda</h2>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="how"><div class="wrap">
+  <h2>¿Cómo comprar?</h2>
+  <div class="steps">
+    <div class="box step"><div class="n">1</div><h3>Elegí</h3><p>Mirá la tienda y encontrá tu favorito</p></div>
+    <div class="box step"><div class="n">2</div><h3>Escribinos</h3><p>Tocá "Lo quiero" y se abre WhatsApp</p></div>
+    <div class="box step"><div class="n">3</div><h3>Recibilo</h3><p>Coordinamos pago y envío o retiro</p></div>
+  </div>
+</div></section>
+
+<footer>
+  <div class="logo">🎁 Nini Gift Store</div>
+  <p>Regalos tiernos para cada ocasión 🐾</p>
+  <p>Lun a Sáb · 9:00–18:00</p>
+</footer>
+<a class="fab" id="fab" target="_blank">💬</a>
+
+<script>
+// ====== EDITÁ ESTO ======
+const WHATSAPP = "595981000000";           // tu número, con código de país y sin +
+const PRODUCTOS = [                         // foto = nombre del archivo dentro de /fotos
+  {nombre:"Llavero Sanrio",       cat:"Sanrio",   precio:25000, foto:"llavero-sanrio.jpg", etiqueta:"Nuevo"},
+  {nombre:"Figura chibi JJK",     cat:"Anime",    precio:45000, foto:"figura-chibi-jjk.jpg", etiqueta:"Top venta"},
+  {nombre:"Peluche Totoro",       cat:"Anime",    precio:60000, foto:"peluche-totoro.jpg"},
+  {nombre:"Peluche Chiikawa mini",cat:"Chiikawa", precio:55000, foto:"peluche-chiikawa-mini.jpg"},
+  {nombre:"Peluche Pusheen",      cat:"Pusheen",  precio:65000, foto:"peluche-pusheen.jpg"},
+  {nombre:"Taza gatito",          cat:"Gatitos",  precio:30000, foto:"taza-gatito.jpg"},
+];
+const EMOJI = {Sanrio:"🎀",Anime:"🌸",Chiikawa:"🐹",Pusheen:"😸",Gatitos:"🐱"};
+const COLOR = {Sanrio:"#F6B5CF",Anime:"#C7B8ED",Chiikawa:"#FFE27A",Pusheen:"#A9E4C7",Gatitos:"#FFD0A8"};
+// ========================
+const wa = t => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+topWa.href = fab.href = wa("Hola! Quiero hacer una consulta");
+const cats = ["Todos", ...new Set(PRODUCTOS.map(p=>p.cat))];
+let actual = "Todos";
+function pintar(){
+  chips.innerHTML = cats.map(c=>`<button class="chip ${c===actual?'on':''}" onclick="actual='${c}';pintar()">${EMOJI[c]||'✨'} ${c}</button>`).join("");
+  grid.innerHTML = PRODUCTOS.filter(p=>actual==="Todos"||p.cat===actual).map(p=>`
+    <div class="box card">
+      <div class="ph" style="background:${COLOR[p.cat]||'#eee'}">${p.etiqueta?`<span class="tag">${p.etiqueta}</span>`:''}${EMOJI[p.cat]||'🎁'}
+        <img src="fotos/${p.foto}" alt="${p.nombre}" onerror="this.remove()"></div>
+      <div class="info"><h4>${p.nombre}</h4><div class="price">Gs. ${p.precio.toLocaleString('es-PY')}</div>
+        <a class="btn wa" target="_blank" href="${wa('Hola! Me interesa: '+p.nombre)}">💬 Lo quiero</a></div>
+    </div>`).join("");
+}
+pintar();
+</script>
+</body>
+</html>
